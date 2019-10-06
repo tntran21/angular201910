@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <h2 class="w-100 text-center my-5">LIST CATEGORY</h2>
+    <div class="col-12">
+      
+    <button (click)="addCategory()" class="btn btn-primary mb-3">Add New</button>
+      <div *ngIf='categorys$'>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <!-- <th>#</th> -->
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Discription</th>
+              <th scope="col">CategoryId</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let i of categorys$ | async'>
+              <!-- <td>
+                <input type="checkbox" [(ngModel)]="isChecked" (change)="changeChecked($event)" aria-label="Checkbox for following text input">
+              </td> -->
+              <th scope="row">{{i.id}}</th>
+              <td>{{i.name}}</td>
+              <td>{{i.discription}}</td>
+              <td>{{i.categoryId}}</td>
+              <td>
+                <button class="btn btn-outline-primary" (click)="updateCategory(i.id)">Edit</button>
+              </td>
+              <td>
+                <button class="btn btn-outline-danger" (click)="deleteCategory(i.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- <router-outlet></router-outlet> -->
