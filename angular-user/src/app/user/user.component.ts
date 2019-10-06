@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
 import { UserService } from  '../service/user.service';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-user',
@@ -8,8 +9,9 @@ import { UserService } from  '../service/user.service';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+  public username: string = '';
+  public password: string = '';
   user: any = {};
-  username;
   // user: User;
   constructor(
     private _loginService: UserService
@@ -19,14 +21,13 @@ export class UserComponent implements OnInit {
   }
 
   login() {
-    // this.username = this.user.username;
-    // this._loginService.login(this.user).subscribe(res => {
-
-    // }, error => {
-
-    // });
-    this._loginService.login(this.user).subscribe((data)=>{
-      console.log(data)
+    if (this.username == '') {
+      console.log('chua nhap email');
+      // $('#username').focus()
+    }
+    this._loginService.login(this.user).subscribe(res =>{
+      console.log(res)
+     
     })
   }
 
