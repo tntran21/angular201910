@@ -1,0 +1,47 @@
+<div class="container">
+    <h2 *ngIf='activeId == true' class="text-center w-100">Edit Category</h2>
+    <h2 *ngIf='activeId == false' class="text-center w-100">ADD Category</h2>
+    <div class="col-12">
+      <form>
+        <div class="form-group">
+          <label for="code" class="font-weight-bold">Code</label>
+          <input type="number" class="form-control" id="code" name="code" [(ngModel)]='category.code'>
+        </div>
+    
+        <div class="form-group">
+          <label for="name" class="font-weight-bold">Name</label>
+          <input type="text" class="form-control" name="name" id="name" [(ngModel)]='category.name'>
+        </div>
+    
+        <div class="form-group">
+          <label for="categoryId" class="font-weight-bold">categoryId</label>
+          <input type="number" class="form-control" name="categoryId" id="categoryId" [(ngModel)]='category.categoryId'>
+        </div>
+    
+        <div class="form-group">
+          <label for="discription" class="font-weight-bold">discription</label>
+          <input type="text" class="form-control" name="discription" id="discription" [(ngModel)]='category.discription'>
+        </div>
+
+        <div class="form-group d-flex align-item-center justify-content-between">
+          <label class="font-weight-bold">Trạng thái:</label>
+          <div class="w-50 d-flex justify-content-between">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" [(ngModel)]="category.status" [value]=true name="status">Hiển thị
+              </label>
+            </div>
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" [(ngModel)]="category.status" [value]=false name="status">Không
+                hiển thị
+              </label>
+            </div>
+          </div>
+        </div>
+        <button *ngIf="activeId == true" class="btn btn-primary" (click)='updateCategory(category.id)'>Edit</button>
+        <button *ngIf="activeId == false" class="btn btn-primary" (click)='addCategory()'>ADD</button>
+      </form>
+    
+  </div>
+</div>
