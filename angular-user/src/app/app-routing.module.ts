@@ -7,7 +7,7 @@ import { UserComponent } from './user/user.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/category', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   // {path: 'category', component: ListComponent},
   {path: '', loadChildren: './category/category.module#CategoryModule'},
   // {path: 'login', loadChildren: './user/user.module#UserModule'}, 
